@@ -1,107 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/main_toolbar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:title="Your App Title" />
 
-    <TextView
-        android:id="@+id/ph_text"
+    <!-- Main content -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="pH Level:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_gravity="center">
 
-    <SeekBar
-        android:id="@+id/ph_seekbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:max="14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ph_text" />
+        <!-- Block 1 -->
+        <LinearLayout
+            android:id="@+id/block1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:background="#AFE086"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/auto_watering_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Enable Auto Watering:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ph_seekbar" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/icons8_plan_50" />
 
-    <Switch
-        android:id="@+id/auto_watering_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="8dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auto_watering_text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="My Plants"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/uv_light_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="UV Light:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auto_watering_switch" />
+        <!-- Block 2 -->
+        <LinearLayout
+            android:id="@+id/block2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:background="#B1B1B1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/uv_light_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/uv_light_text" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/plus" />
 
-    <TextView
-        android:id="@+id/health_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Health Bar:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/uv_light_switch" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Add Plant"
+                android:textSize="16sp" />
+        </LinearLayout>
 
-    <SeekBar
-        android:id="@+id/health_bar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        <!-- Block 3 -->
+        <LinearLayout
+            android:id="@+id/block3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#DDDDDD"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
 
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/health_text" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:src="@drawable/database" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Data"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Block 4 -->
+        <LinearLayout
+            android:id="@+id/block4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#DDDDDD"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:src="@drawable/settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Settings"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </GridLayout>
+
+</RelativeLayout>

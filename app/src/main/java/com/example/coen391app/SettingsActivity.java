@@ -1,60 +1,55 @@
 package com.example.coen391app;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.DialogFragment;
 
 public class SettingsActivity extends AppCompatActivity {
-    Button wifiSetup_btn;
+
+    private LinearLayout waterSettingsLayout;
+    private LinearLayout uvSettingsLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_settings);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.settings_layout), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        Toolbar toolbar = findViewById(R.id.settings_toolbar);
-        setSupportActionBar(toolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        wifiSetup_btn = findViewById(R.id.wifi_setup_button);
+        waterSettingsLayout = findViewById(R.id.waterSettingsLayout);
+        uvSettingsLayout = findViewById(R.id.uvSettingsLayout);
+        TextView waterSettingsHeader = findViewById(R.id.waterSettingsHeader);
+        TextView uvSettingsHeader = findViewById(R.id.uvSettingsHeader);
 
-
-        wifiSetup_btn.setOnClickListener(v -> {
-            // Check for ACCESS_FINE_LOCATION permission
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                Toast.makeText(this, "Please press again after accepting permissions!", Toast.LENGTH_SHORT).show();
-            }else {
-                // If permission is granted, show the DialogFragment
-                DialogFragment dialogFragment = new WifiSetup();
-                dialogFragment.show(getSupportFragmentManager(), "Wifi Setup");
+        // Water Settings
+        waterSettingsHeader.setOnClickListener(view -> {
+            if (waterSettingsLayout.getVisibility() == View.VISIBLE) {
+                waterSettingsLayout.setVisibility(View.GONE);
+            } else {
+                waterSettingsLayout.setVisibility(View.VISIBLE);
             }
-
         });
 
+        // UV
+        uvSettingsHeader.setOnClickListener(view -> {
+            if (uvSettingsLayout.getVisibility() == View.VISIBLE) {
+                uvSettingsLayout.setVisibility(View.GONE);
+            } else {
+                uvSettingsLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        SeekBar lowSoilMoistureSlider = findViewById(R.id.lowSoilMoistureSlider);
+        SeekBar wateringSlider = findViewById(R.id.wateringSlider);
+        Switch wateringSwitch = findViewById(R.id.wateringSwitch);
+        SeekBar uvSlider = findViewById(R.id.uvSlider);
+        Switch themeSwitch = findViewById(R.id.themeSwitch);
+
+        // ADD ADDITIONAL LOGIC HERE
     }
-
-
-
-
 }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Field for Plant Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plant Name"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/plantNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter plant name" />
+
+    <!-- Field for Plant Type -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plant Type"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/plantTypeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter plant type" />
+
+    <!-- Custom Care Instructions -->
+
+    <!-- Expandable Layout for Care Instructions -->
+    <LinearLayout
+        android:id="@+id/careInstructionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"> <!-- Changed to visible -->
+
+        <!-- Input for Care Instruction 1 -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="left|fill_vertical"
+                android:text="Custom Care"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/careInstruction1EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Moisture" />
+
+        <!-- Input for Care Instruction 2 -->
+        <EditText
+            android:id="@+id/careInstruction2EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperature" />
+
+        <!-- Input for Care Instruction 3 -->
+        <EditText
+            android:id="@+id/careInstruction3EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UV Intensity" />
+
+    </LinearLayout>
+
+</LinearLayout>
