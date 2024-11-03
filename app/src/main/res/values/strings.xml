@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">COEN391APP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connection_instructions1">
+        Step1:\n
+        Please connect to your Device Wi-Fi network\n
+        SSID: ESP32_AP\n
+        Password: 12345678\n
+    </string>
+
+    <string name="connection_instructions2">
+        Step2:\n
+        Please enter your local Wifi Settings\n
+        This is the wifi your device will use\n
+        to connect to the Internet!
+    </string>
+
 </resources>
