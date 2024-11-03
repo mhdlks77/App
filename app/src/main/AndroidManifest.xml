@@ -18,6 +18,21 @@
         tools:targetApi="28">
 
         <activity
+            android:name=".AddPlantActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DataActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PlantActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".SettingsActivity"
             android:label="Settings"
             android:parentActivityName=".MainActivity"
@@ -33,8 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SettingsActivity"/>
+
     </application>
 
 </manifest>

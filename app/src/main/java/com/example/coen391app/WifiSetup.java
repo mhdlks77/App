@@ -49,7 +49,6 @@ public class WifiSetup extends DialogFragment {
     public void onResume() {
         super.onResume();
         current_ssid = getSSID();
-        Toast.makeText(getContext(), "Current SSID\n" + current_ssid, Toast.LENGTH_SHORT).show();
 
         if(current_ssid.equals("ESP32_AP"))
             step2();

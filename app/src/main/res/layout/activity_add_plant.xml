@@ -18,7 +18,10 @@
         android:id="@+id/plantNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter plant name" />
+        android:minHeight="48dp"
+        android:inputType="text"
+        android:hint="Enter plant name"
+        android:importantForAutofill="no"/>
 
     <!-- Field for Plant Type -->
     <TextView
@@ -33,7 +36,10 @@
         android:id="@+id/plantTypeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter plant type" />
+        android:minHeight="48dp"
+        android:inputType="text"
+        android:hint="Enter plant type"
+        android:importantForAutofill="no"/>
 
     <!-- Custom Care Instructions -->
 
@@ -46,22 +52,21 @@
         android:visibility="visible"> <!-- Changed to visible -->
 
         <!-- Input for Care Instruction 1 -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
-                android:gravity="left|fill_vertical"
+                android:gravity="start|fill_vertical"
+                android:layout_gravity=""
                 android:text="Custom Care"
                 android:textSize="20sp" />
 
@@ -69,33 +74,39 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="ADD"
                 android:layout_weight="2"
                 app:srcCompat="@drawable/plus" />
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/careInstruction1EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Moisture" />
+            android:minHeight="48dp"
+            android:inputType="text"
+            android:hint="Moisture"
+            android:importantForAutofill="no"/>
 
         <!-- Input for Care Instruction 2 -->
         <EditText
             android:id="@+id/careInstruction2EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Temperature" />
+            android:minHeight="48dp"
+            android:inputType="text"
+            android:hint="Temperature"
+            android:importantForAutofill="no"/>
 
         <!-- Input for Care Instruction 3 -->
         <EditText
             android:id="@+id/careInstruction3EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="UV Intensity" />
+            android:minHeight="48dp"
+            android:inputType="text"
+            android:hint="UV Intensity"
+            android:importantForAutofill="no"/>
 
     </LinearLayout>
 

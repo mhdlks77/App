@@ -6,14 +6,24 @@
     android:padding="16dp">
 
     <!-- Water Settings -->
+
+    <Button
+        android:id="@+id/wifi_setup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Setup Wifi Connection" />
+
     <TextView
         android:id="@+id/waterSettingsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Water Settings"
-        android:textSize="18sp"
         android:layout_marginBottom="8dp"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:minHeight="48dp"
+        android:text="Water Settings"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:id="@+id/waterSettingsLayout"
@@ -27,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adjust Watering Levels"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
         <!-- You can add other water-related settings here -->
 
     </LinearLayout>
@@ -39,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="UV Settings"
         android:textSize="18sp"
+        android:minHeight="48dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"/>
 
@@ -54,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adjust UV Levels"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
 
     </LinearLayout>
@@ -98,7 +109,8 @@
         android:id="@+id/wateringSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enable Watering Notifications" />
+        android:text="Enable Watering Notifications"
+        android:minHeight="48dp"/>
 
     <!-- UV -->
     <TextView
@@ -124,6 +136,8 @@
         android:id="@+id/themeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dark Mode" />
+        android:text="Dark Mode"
+        android:minHeight="48dp"/>
+
 
 </LinearLayout>
