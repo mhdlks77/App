@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,6 @@ public class WifiSetup extends DialogFragment {
         else
             step1();
 
-
-
     }
 
     @Override
@@ -81,7 +80,10 @@ public class WifiSetup extends DialogFragment {
             String password = wifi_password.getText().toString().trim();
 
             if (!ssid.isEmpty() && !password.isEmpty()) {
+
+                Log.d("WifiSetup", "Sending WiFi Config - SSID: " + ssid + ", Password: " + password);
                 sendWifiConfig(ssid, password);
+
                 dismiss();
             } else {
                 Toast.makeText(getContext(), "SSID and password cannot be empty", Toast.LENGTH_SHORT).show();
@@ -142,6 +144,7 @@ public class WifiSetup extends DialogFragment {
         // Convert JSONObject to String
         String jsonString = jsonObject.toString();
 
+        Log.d("WifiSetup", "JSON to send: " + jsonString);
 
         // Create request body with JSON data
         RequestBody body = RequestBody.create(jsonString, MediaType.get("application/json; charset=utf-8"));
@@ -152,10 +155,14 @@ public class WifiSetup extends DialogFragment {
                 .post(body)
                 .build();
 
+        Log.d("WifiSetup", "Request URL: " + request.url());
+
         // Execute the request asynchronously
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                Log.e("WifiSetup", "Network Request Failed: " + e.getMessage());
+
                 if (getActivity() != null) { // Ensure the fragment is attached to an activity
                     getActivity().runOnUiThread(() ->
                             Toast.makeText(getContext(), "Failed to connect to server:", Toast.LENGTH_SHORT).show()
@@ -165,6 +172,10 @@ public class WifiSetup extends DialogFragment {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) {
+
+                Log.d("WifiSetup", "Response Code: " + response.code());
+
+
                 if (getActivity() == null) return; // Exit if fragment is no longer attached
 
                 getActivity().runOnUiThread(() -> {
