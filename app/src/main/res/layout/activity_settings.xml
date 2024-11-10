@@ -1,143 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- Water Settings -->
-
-    <Button
-        android:id="@+id/wifi_setup_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Setup Wifi Connection" />
-
-    <TextView
-        android:id="@+id/waterSettingsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        android:minHeight="48dp"
-        android:text="Water Settings"
-        android:textSize="18sp" />
-
-    <LinearLayout
-        android:id="@+id/waterSettingsLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"> <!-- Initially hidden -->
+        android:layout_height="wrap_content">
 
-        <!-- Add water settings content here -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adjust Watering Levels"
-            android:textSize="16sp" />
-        <!-- You can add other water-related settings here -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorPrimary"
+                android:title="Settings" />
 
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/uvSettingsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UV Settings"
-        android:textSize="18sp"
-        android:minHeight="48dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"/>
+        <!-- Main content here, e.g., a RecyclerView or a LinearLayout -->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <LinearLayout
-        android:id="@+id/uvSettingsLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adjust UV Levels"
-            android:textSize="16sp" />
-
-
-    </LinearLayout>
-
-    <!-- Notifications Settings -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notifications Settings"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <!-- Low Soil Moisture -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Low Soil Moisture"
-        android:textSize="16sp"/>
-
-    <SeekBar
-        android:id="@+id/lowSoilMoistureSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100" />
-
-    <!-- Watering -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Watering"
-        android:textSize="16sp"/>
-
-    <SeekBar
-        android:id="@+id/wateringSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"/>
-
-    <Switch
-        android:id="@+id/wateringSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enable Watering Notifications"
-        android:minHeight="48dp"/>
-
-    <!-- UV -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UV"
-        android:textSize="16sp"/>
-
-    <SeekBar
-        android:id="@+id/uvSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"/>
-
-    <!-- Theme -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Theme"
-        android:textSize="16sp"/>
-
-    <Switch
-        android:id="@+id/themeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dark Mode"
-        android:minHeight="48dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
+
+
+

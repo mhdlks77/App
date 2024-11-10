@@ -3,111 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- Field for Plant Name -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plant Name"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp"/>
-
-    <EditText
-        android:id="@+id/plantNameEditText"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:inputType="text"
-        android:hint="Enter plant name"
-        android:importantForAutofill="no"/>
+        android:layout_height="wrap_content">
 
-    <!-- Field for Plant Type -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plant Type"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/plantTypeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:inputType="text"
-        android:hint="Enter plant type"
-        android:importantForAutofill="no"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:title="Settings" />
 
-    <!-- Custom Care Instructions -->
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Expandable Layout for Care Instructions -->
+        <!-- Main content here, e.g., a RecyclerView or a LinearLayout -->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
     <LinearLayout
-        android:id="@+id/careInstructionsLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="visible"> <!-- Changed to visible -->
-
-        <!-- Input for Care Instruction 1 -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:gravity="start|fill_vertical"
-                android:layout_gravity=""
-                android:text="Custom Care"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="ADD"
-                android:layout_weight="2"
-                app:srcCompat="@drawable/plus" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/careInstruction1EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:inputType="text"
-            android:hint="Moisture"
-            android:importantForAutofill="no"/>
-
-        <!-- Input for Care Instruction 2 -->
-        <EditText
-            android:id="@+id/careInstruction2EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:inputType="text"
-            android:hint="Temperature"
-            android:importantForAutofill="no"/>
-
-        <!-- Input for Care Instruction 3 -->
-        <EditText
-            android:id="@+id/careInstruction3EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:inputType="text"
-            android:hint="UV Intensity"
-            android:importantForAutofill="no"/>
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
 
 </LinearLayout>
