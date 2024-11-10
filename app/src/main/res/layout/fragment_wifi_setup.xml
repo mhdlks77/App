@@ -89,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
+        android:drawablePadding="8dp"
         android:drawableEnd="@drawable/baseline_wifi_24"
         android:text="Open Wi-Fi"
         app:layout_constraintEnd_toEndOf="parent"
