@@ -48,16 +48,6 @@
                 tools:itemCount="2" />
         </ScrollView>
 
-        <Button
-            android:id="@+id/button2"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#76C179"
-            android:text="Add a new plant"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scrollView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
