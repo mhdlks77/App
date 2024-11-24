@@ -34,6 +34,9 @@
             android:parentActivityName=".MainActivity"
             android:exported="false" />
 
+        <activity android:name=".PlantDetailsActivity"
+            android:parentActivityName=".PlantActivity"/>
+
         <activity
             android:name=".SettingsActivity"
             android:label="Settings"

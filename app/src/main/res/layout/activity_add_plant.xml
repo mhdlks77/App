@@ -26,8 +26,85 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Text Input for Plant Nickname -->
+        <TextView
+            android:id="@+id/label_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plant Nickname"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/input_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter plant nickname"
+            android:inputType="text"
+            android:padding="8dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- Date Input for Plant Date -->
+        <TextView
+            android:id="@+id/label_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Planted"
+            android:textSize="16sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/input_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="YYYY-MM-DD"
+            android:inputType="date"
+            android:padding="8dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- List for Plant Template Selection -->
+        <TextView
+            android:id="@+id/label_template"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Plant Type"
+            android:textSize="16sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_plant_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/plant_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select a plant type to see its details"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp"
+            android:visibility="invisible" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btn_add_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Add Plant"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
 </LinearLayout>

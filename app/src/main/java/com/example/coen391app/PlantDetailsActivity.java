@@ -18,7 +18,6 @@ public class PlantDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView plantNameView = findViewById(R.id.plantNameTextView);
-        TextView plantTypeView = findViewById(R.id.plantTypeTextView);
         TextView plantAgeView = findViewById(R.id.plantAgeTextView);
         TextView plantTemperatureView = findViewById(R.id.plantTemperatureTextView);
         TextView plantUVLightView = findViewById(R.id.plantUVLightTextView);
@@ -26,7 +25,6 @@ public class PlantDetailsActivity extends AppCompatActivity {
 
         //--------------Retrieving data from intent------------
         String plantName = getIntent().getStringExtra("plantName");
-        String plantType = getIntent().getStringExtra("plantType");
         int plantAge = getIntent().getIntExtra("plantAge",0);
         double plantTemperature = getIntent().getDoubleExtra("plantTemperature", 0.0);
         double plantUVLight = getIntent().getDoubleExtra("plantUVLight", 0.0);
@@ -34,7 +32,6 @@ public class PlantDetailsActivity extends AppCompatActivity {
 
         //------------setting plant details-------------
         plantNameView.setText(plantName);
-        plantTypeView.setText(plantType);
         plantAgeView.setText("This plant is " + plantAge + " days old");
         plantTemperatureView.setText("Temperature: " + plantTemperature + " °C");
         plantUVLightView.setText("UV Lighting level " + plantUVLight + " units");

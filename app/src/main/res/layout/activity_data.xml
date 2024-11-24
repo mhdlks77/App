@@ -5,7 +5,6 @@
     android:padding="24dp"
     android:background="#f5f5f5">
 
-    <!-- Title TextView with larger size and extra padding -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"

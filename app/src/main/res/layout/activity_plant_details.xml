@@ -38,14 +38,6 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/plantTypeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/plantAgeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

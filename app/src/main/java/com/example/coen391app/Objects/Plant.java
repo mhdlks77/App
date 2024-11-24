@@ -2,38 +2,34 @@ package com.example.coen391app.Objects;
 
 import java.io.Serializable;
 
-public class Plant implements Serializable {
+public class Plant extends PlantTemplate implements Serializable {
 
-    private String name;
-    private String type;
+    private String nickname;
+    private String description;
+    private PlantTemplate template;
     private int age;
     private double soilMoistureLevel;
     private double temperature;
     private double uvLighting;
 
-    public Plant(String name, String type) {
-        this.name = name;
-        this.type = type;
+    public Plant(String nickname, PlantTemplate template) {
+        super();
+        this.template = template;
+        this.nickname = nickname;
+        this.scientificName = this.template.getScientificName();
+        this.commonName = this.template.getCommonName();
+        this.description = this.template.getDescription();
         this.age = 0;
         this.temperature = 0;
         this.soilMoistureLevel = 0;
         this.uvLighting = 0;
+        this.recommendedTemp = this.template.getRecommendedTemp();
+        this.recommendedSoilMoisture = this.template.getRecommendedSoilMoisture();
+        this.recommendedUvLight = this.template.getRecommendedUvLight();
     }
 
-    public String getName() {
-        return name;
-    }
+    public Plant(){
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getAge() {
@@ -66,5 +62,21 @@ public class Plant implements Serializable {
 
     public void setUvLighting(double uvLighting) {
         this.uvLighting = uvLighting;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public PlantTemplate getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(PlantTemplate template) {
+        this.template = template;
     }
 }

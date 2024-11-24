@@ -32,13 +32,11 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
     @Override
     public void onBindViewHolder(@NonNull PlantViewHolder holder, int position) {
         Plant plant = plantList.get(position);
-        holder.plantNameTextView.setText(plant.getName());
-        holder.plantTypeTextView.setText(plant.getType());
+        holder.plantNameTextView.setText(plant.getNickname());
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), PlantDetailsActivity.class);
-            intent.putExtra("plantName", plant.getName());
-            intent.putExtra("plantType", plant.getType());
+            intent.putExtra("plantName", plant.getNickname());
             intent.putExtra("plantAge", plant.getAge());
             intent.putExtra("plantTemperature", plant.getTemperature());
             intent.putExtra("plantUVLight", plant.getUvLighting());
