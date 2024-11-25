@@ -146,6 +146,22 @@
 
     <!-- Footer -->
 
+    <TextView
+        android:id="@+id/dataTextView"
+        android:layout_width="210dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/footerTextView"
+        android:layout_marginBottom="-131dp"
+        android:gravity="center"
+       android:text="Data"
+
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:transitionName="textViewTransition" />
 
     <TextView
         android:id="@+id/footerTextView"
