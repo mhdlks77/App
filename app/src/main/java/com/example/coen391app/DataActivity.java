@@ -120,17 +120,18 @@ public class DataActivity extends AppCompatActivity {
                         moistureProgressBar.setProgress(moisturePercent); // Show actual progress
                         moistureValue.setText(moisturePercent + "%");
 
-                        // Set the progress bar color to red if the moisture is below the ideal level
-                        if (moisturePercent < idealMoisture) {
+                        // Turn the progress bar red if moisture is below 20% of the ideal moisture or above 25% of the ideal moisture
+                        if (moisturePercent < (idealMoisture - 20) || moisturePercent > (idealMoisture + 25)) {
                             moistureProgressBar.getProgressDrawable().setColorFilter(
                                     ContextCompat.getColor(DataActivity.this, android.R.color.holo_red_light),
                                     android.graphics.PorterDuff.Mode.SRC_IN
                             );
                         } else {
-                            // Optional: Reset to default (if you want to remove any color change when above ideal)
+                            // Optional: Reset to default (if you want to remove any color change when within acceptable range)
                             moistureProgressBar.getProgressDrawable().clearColorFilter();
                         }
                     }
+
 
 
 
