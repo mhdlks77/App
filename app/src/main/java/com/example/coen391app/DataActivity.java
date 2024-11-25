@@ -2,10 +2,10 @@ package com.example.coen391app;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ProgressBar;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,23 +18,29 @@ import com.google.firebase.database.ValueEventListener;
 public class DataActivity extends AppCompatActivity {
 
     private DatabaseReference rootDatabaseRef;
-    private TextView dataTextView; // TextView to display data
-    private Switch lightingSwitch, wateringSwitch; // Switch components
+    //private TextView dataTextView;
+    private TextView lightValue, moistureValue, temperatureValue; // Percentages
+    private Switch lightingSwitch, wateringSwitch;
     private ProgressBar lightProgressBar, moistureProgressBar, temperatureProgressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data); // Set your layout file here
+        setContentView(R.layout.activity_data);
 
-        dataTextView = findViewById(R.id.dataTextView); // Reference your TextView
-        lightingSwitch = findViewById(R.id.lightingSwitch); // Reference your Lighting Switch
-        wateringSwitch = findViewById(R.id.wateringSwitch); // Reference your Watering Switch
+        // Initialize views
+      //  dataTextView = findViewById(R.id.dataTextView);
+        lightingSwitch = findViewById(R.id.lightingSwitch);
+        wateringSwitch = findViewById(R.id.wateringSwitch);
         lightProgressBar = findViewById(R.id.lightProgressBar);
         moistureProgressBar = findViewById(R.id.moistureProgressBar);
         temperatureProgressBar = findViewById(R.id.temperatureProgressBar);
+        lightValue = findViewById(R.id.lightValue);
+        moistureValue = findViewById(R.id.moistureValue);
+        temperatureValue = findViewById(R.id.temperatureValue);
+
         // Initialize Firebase Database reference
-        rootDatabaseRef = FirebaseDatabase.getInstance().getReference(); // Point to root
+        rootDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         // Set up listeners for the switches
         setupSwitchListeners();
@@ -45,14 +51,12 @@ public class DataActivity extends AppCompatActivity {
 
     private void setupSwitchListeners() {
         lightingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Update Firebase when the Lighting switch is toggled
             rootDatabaseRef.child("Automation").child("Lighting").setValue(isChecked)
                     .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Lighting updated to " + isChecked))
                     .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Lighting", e));
         });
 
         wateringSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Update Firebase when the Watering switch is toggled
             rootDatabaseRef.child("Automation").child("Watering").setValue(isChecked)
                     .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Watering updated to " + isChecked))
                     .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Watering", e));
@@ -65,32 +69,25 @@ public class DataActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 StringBuilder data = new StringBuilder();
 
-                // Get Lighting data with null check
+                // Lighting data
                 Boolean lightingStatus = dataSnapshot.child("Automation").child("Lighting").getValue(Boolean.class);
                 if (lightingStatus != null) {
-                    lightingSwitch.setChecked(lightingStatus); // Sync switch with Firebase value
+                    lightingSwitch.setChecked(lightingStatus);
                     data.append("Lighting: ").append(lightingStatus).append("\n");
                 } else {
                     data.append("Lighting: Not available\n");
                 }
 
-                // Get Watering data with null check
+                // Watering data
                 Boolean wateringStatus = dataSnapshot.child("Automation").child("Watering").getValue(Boolean.class);
                 if (wateringStatus != null) {
-                    wateringSwitch.setChecked(wateringStatus); // Sync switch with Firebase value
+                    wateringSwitch.setChecked(wateringStatus);
                     data.append("Watering: ").append(wateringStatus).append("\n");
                 } else {
                     data.append("Watering: Not available\n");
                 }
 
-                Integer idealMoisture = dataSnapshot.child("Automation").child("Ideal Moisture").getValue(Integer.class);
-                if (idealMoisture != null) {
-                    data.append("Ideal Moisture: ").append(idealMoisture).append("\n");
-                } else {
-                    data.append("Ideal Moisture: Not available\n");
-                }
-
-                // Get SensorData with null checks for each field
+                // Sensor Data
                 DataSnapshot sensorData = dataSnapshot.child("SensorData");
                 if (sensorData.exists()) {
                     Integer light = sensorData.child("light").getValue(Integer.class);
@@ -102,27 +99,28 @@ public class DataActivity extends AppCompatActivity {
                     data.append("Moisture Percent: ").append(moisturePercent != null ? moisturePercent : "Not available").append("\n");
                     data.append("Temperature: ").append(temperature != null ? temperature : "Not available").append("\n");
 
-                    // Update ProgressBars
+                    // Update ProgressBars and Percentages
                     if (light != null) {
-                        lightProgressBar.setProgress(light); // Update light progress
+                        lightProgressBar.setProgress(light);
+                        lightValue.setText(light + "%");
                     }
 
                     if (moisturePercent != null) {
-                        moistureProgressBar.setProgress(moisturePercent); // Update moisture progress
+                        moistureProgressBar.setProgress(moisturePercent);
+                        moistureValue.setText(moisturePercent + "%");
                     }
 
                     if (temperature != null) {
-                        temperatureProgressBar.setProgress(temperature.intValue()); // Update temperature progress
+                        temperatureProgressBar.setProgress(temperature.intValue());
+                        temperatureValue.setText(temperature.intValue() + "%");
                     }
                 } else {
                     data.append("Sensor Data: Not available\n");
                 }
 
-                // Log the data retrieved
-                Log.d("DataActivity", "Data Retrieved: " + data.toString());
-
-                // Set the data to the TextView
-                dataTextView.setText(data.toString()); // Set the data to the TextView
+                // Log and display the retrieved data
+                //Log.d("DataActivity", "Data Retrieved: " + data.toString());
+               // dataTextView.setText(data.toString());
             }
 
             @Override
@@ -132,4 +130,3 @@ public class DataActivity extends AppCompatActivity {
         });
     }
 }
-

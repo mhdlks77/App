@@ -5,6 +5,7 @@
     android:padding="24dp"
     android:background="#f5f5f5">
 
+    <!-- Title -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -23,12 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_alignParentEnd="true"
         android:text="Lighting"
-        android:textSize="24sp"
-        android:textColor="#444" />
+        android:textColor="#444"
+        android:textSize="24sp" />
 
     <!-- Watering Switch -->
     <Switch
@@ -36,14 +36,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lightingSwitch"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_alignParentEnd="true"
         android:text="Watering"
-        android:textSize="24sp"
-        android:textColor="#444" />
+        android:textColor="#444"
+        android:textSize="24sp" />
 
-    <!-- Health Bar Labels and Progress Bars Section -->
+    <!-- Light Progress Bar with Label -->
     <TextView
         android:id="@+id/lightLabel"
         android:layout_width="wrap_content"
@@ -53,6 +52,17 @@
         android:text="Light"
         android:textSize="20sp"
         android:textColor="#444" />
+
+    <TextView
+        android:id="@+id/lightValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wateringSwitch"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="0%"
+        android:textSize="16sp"
+        android:textColor="#666" />
 
     <ProgressBar
         android:id="@+id/lightProgressBar"
@@ -66,15 +76,27 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:progressDrawable="@android:drawable/progress_horizontal" />
 
+    <!-- Moisture Progress Bar with Label -->
     <TextView
         android:id="@+id/moistureLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lightProgressBar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Moisture"
         android:textSize="20sp"
         android:textColor="#444" />
+
+    <TextView
+        android:id="@+id/moistureValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lightProgressBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="0%"
+        android:textSize="16sp"
+        android:textColor="#666" />
 
     <ProgressBar
         android:id="@+id/moistureProgressBar"
@@ -88,15 +110,27 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:progressDrawable="@android:drawable/progress_horizontal" />
 
+    <!-- Temperature Progress Bar with Label -->
     <TextView
         android:id="@+id/temperatureLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/moistureProgressBar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Temperature"
         android:textSize="20sp"
         android:textColor="#444" />
+
+    <TextView
+        android:id="@+id/temperatureValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moistureProgressBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:text="0%"
+        android:textSize="16sp"
+        android:textColor="#666" />
 
     <ProgressBar
         android:id="@+id/temperatureProgressBar"
@@ -109,32 +143,21 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:progressDrawable="@android:drawable/progress_horizontal" />
 
-    <!-- Data TextView with increased line spacing, padding, and larger font size -->
-    <TextView
-        android:id="@+id/dataTextView"
-        android:layout_width="365dp"
-        android:layout_height="175dp"
-        android:layout_below="@id/temperatureProgressBar"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:elevation="2dp"
-        android:lineSpacingExtra="8dp"
-        android:padding="16dp"
-        android:scrollbars="vertical"
-        android:textColor="#444"
-        android:textSize="20sp" />
 
-    <!-- Footer TextView with smaller size, centered, and added padding -->
+    <!-- Footer -->
+
+
     <TextView
         android:id="@+id/footerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dataTextView"
+        android:layout_below="@id/temperatureProgressBar"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Powered by Firebase"
-        android:textSize="16sp"
-        android:textColor="#888"
         android:paddingTop="12dp"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:text="Powered by Firebase"
+        android:textColor="#888"
+        android:textSize="11sp" />
 
 </RelativeLayout>
