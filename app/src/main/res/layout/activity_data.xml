@@ -10,7 +10,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Automation and Sensor Data"
+        android:text="Sensor Data"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -18,36 +18,13 @@
         android:paddingBottom="20dp"
         android:paddingTop="10dp" />
 
-    <!-- Lighting Switch -->
-    <Switch
-        android:id="@+id/lightingSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titleTextView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:text="Lighting"
-        android:textColor="#444"
-        android:textSize="24sp" />
-
-    <!-- Watering Switch -->
-    <Switch
-        android:id="@+id/wateringSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lightingSwitch"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:text="Watering"
-        android:textColor="#444"
-        android:textSize="24sp" />
 
     <!-- Light Progress Bar with Label -->
     <TextView
         android:id="@+id/lightLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/wateringSwitch"
+        android:layout_below="@id/titleTextView"
         android:layout_marginTop="20dp"
         android:text="Light"
         android:textSize="20sp"
@@ -57,8 +34,9 @@
         android:id="@+id/lightValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/wateringSwitch"
+        android:layout_below="@id/titleTextView"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="0%"
         android:textSize="16sp"
@@ -93,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lightProgressBar"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="0%"
         android:textSize="16sp"
@@ -127,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/moistureProgressBar"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="0%"
         android:textSize="16sp"

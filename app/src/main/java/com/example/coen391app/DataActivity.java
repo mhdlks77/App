@@ -3,26 +3,23 @@ package com.example.coen391app;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import androidx.core.content.ContextCompat; // Make sure to import this class
-import android.graphics.PorterDuff; // For setting color filter mode
 
 public class DataActivity extends AppCompatActivity {
 
     private DatabaseReference rootDatabaseRef;
     private TextView dataTextView;
     private TextView lightValue, moistureValue, temperatureValue; // Percentages
-    private Switch lightingSwitch, wateringSwitch;
     private ProgressBar lightProgressBar, moistureProgressBar, temperatureProgressBar;
 
     @Override
@@ -32,38 +29,20 @@ public class DataActivity extends AppCompatActivity {
 
         // Initialize views
        dataTextView = findViewById(R.id.dataTextView);
-        lightingSwitch = findViewById(R.id.lightingSwitch);
-        wateringSwitch = findViewById(R.id.wateringSwitch);
-        lightProgressBar = findViewById(R.id.lightProgressBar);
-        moistureProgressBar = findViewById(R.id.moistureProgressBar);
-        temperatureProgressBar = findViewById(R.id.temperatureProgressBar);
-        lightValue = findViewById(R.id.lightValue);
-        moistureValue = findViewById(R.id.moistureValue);
-        temperatureValue = findViewById(R.id.temperatureValue);
+       lightProgressBar = findViewById(R.id.lightProgressBar);
+       moistureProgressBar = findViewById(R.id.moistureProgressBar);
+       temperatureProgressBar = findViewById(R.id.temperatureProgressBar);
+       lightValue = findViewById(R.id.lightValue);
+       moistureValue = findViewById(R.id.moistureValue);
+       temperatureValue = findViewById(R.id.temperatureValue);
 
         // Initialize Firebase Database reference
         rootDatabaseRef = FirebaseDatabase.getInstance().getReference();
-
-        // Set up listeners for the switches
-        setupSwitchListeners();
 
         // Retrieve data from Firebase
         retrieveData();
     }
 
-    private void setupSwitchListeners() {
-        lightingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            rootDatabaseRef.child("Automation").child("Lighting").setValue(isChecked)
-                    .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Lighting updated to " + isChecked))
-                    .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Lighting", e));
-        });
-
-        wateringSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            rootDatabaseRef.child("Automation").child("Watering").setValue(isChecked)
-                    .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Watering updated to " + isChecked))
-                    .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Watering", e));
-        });
-    }
 
     private void retrieveData() {
         rootDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -74,7 +53,6 @@ public class DataActivity extends AppCompatActivity {
                 // Watering data
                 Boolean lightingStatus = dataSnapshot.child("Automation").child("Lighting").getValue(Boolean.class);
                 if (lightingStatus != null) {
-                    lightingSwitch.setChecked(lightingStatus);
                     data.append("Lighting: ").append(lightingStatus).append("\n");
                 } else {
                     data.append("Lighting: Not available\n");
@@ -83,7 +61,6 @@ public class DataActivity extends AppCompatActivity {
 
                 Boolean wateringStatus = dataSnapshot.child("Automation").child("Watering").getValue(Boolean.class);
                 if (wateringStatus != null) {
-                    wateringSwitch.setChecked(wateringStatus);
                     data.append("Watering: ").append(wateringStatus).append("\n");
                 } else {
                     data.append("Watering: Not available\n");
