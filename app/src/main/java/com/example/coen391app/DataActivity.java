@@ -97,7 +97,7 @@ public class DataActivity extends AppCompatActivity {
                     // Update ProgressBars and Percentages
                     if (light != null) {
                         lightProgressBar.setProgress(light);
-                        lightValue.setText(light + "%");
+                        lightValue.setText(light + " lux");
                     }
 
                     if (moisturePercent != null) {
@@ -121,7 +121,7 @@ public class DataActivity extends AppCompatActivity {
 
                     if (temperature != null) {
                         temperatureProgressBar.setProgress(temperature.intValue());
-                        temperatureValue.setText(temperature.intValue() + "%");
+                        temperatureValue.setText(temperature.intValue() + "°C");
                     }
                 } else {
                     data.append("Sensor Data: Not available\n");
