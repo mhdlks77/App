@@ -1,143 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".SettingsActivity">
 
-    <!-- Water Settings -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/setupTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Device Setup"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_toolbar" />
 
     <Button
         android:id="@+id/wifi_setup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Setup Wifi Connection" />
-
-    <TextView
-        android:id="@+id/waterSettingsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"
-        android:minHeight="48dp"
-        android:text="Water Settings"
-        android:textSize="18sp" />
-
-    <LinearLayout
-        android:id="@+id/waterSettingsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"> <!-- Initially hidden -->
-
-        <!-- Add water settings content here -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adjust Watering Levels"
-            android:textSize="16sp" />
-        <!-- You can add other water-related settings here -->
-
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/uvSettingsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UV Settings"
-        android:textSize="18sp"
-        android:minHeight="48dp"
-        android:layout_marginBottom="8dp"
-        android:clickable="true"/>
-
-    <LinearLayout
-        android:id="@+id/uvSettingsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adjust UV Levels"
-            android:textSize="16sp" />
-
-
-    </LinearLayout>
-
-    <!-- Notifications Settings -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notifications Settings"
-        android:textSize="18sp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
+        android:drawableEnd="@drawable/baseline_wifi_24"
+        android:drawablePadding="16dp"
+        android:text="Setup Wifi Credentials"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setupTextView" />
 
-    <!-- Low Soil Moisture -->
     <TextView
+        android:id="@+id/automationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Low Soil Moisture"
-        android:textSize="16sp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Automation Settings"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wifi_setup_button" />
 
-    <SeekBar
-        android:id="@+id/lowSoilMoistureSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100" />
 
-    <!-- Watering -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/wateringTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Watering"
-        android:textSize="16sp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Enable/Disable automatic watering using the pump"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/automationTextView" />
 
-    <SeekBar
-        android:id="@+id/wateringSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"/>
-
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/wateringSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enable Watering Notifications"
-        android:minHeight="48dp"/>
-
-    <!-- UV -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UV"
-        android:textSize="16sp"/>
-
-    <SeekBar
-        android:id="@+id/uvSlider"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"/>
-
-    <!-- Theme -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Theme"
-        android:textSize="16sp"/>
-
-    <Switch
-        android:id="@+id/themeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dark Mode"
-        android:minHeight="48dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Automatic Watering"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wateringTextView"
+        app:switchPadding="16dp" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
