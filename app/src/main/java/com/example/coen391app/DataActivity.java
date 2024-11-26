@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +36,12 @@ public class DataActivity extends AppCompatActivity {
        lightValue = findViewById(R.id.lightValue);
        moistureValue = findViewById(R.id.moistureValue);
        temperatureValue = findViewById(R.id.temperatureValue);
+
+        //Setup Toolbar with back navigation
+        Toolbar settings_toolbar = findViewById(R.id.data_toolbar);
+        setSupportActionBar(settings_toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Initialize Firebase Database reference
         rootDatabaseRef = FirebaseDatabase.getInstance().getReference();
