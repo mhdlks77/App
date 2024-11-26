@@ -51,11 +51,11 @@ public class SettingsActivity extends AppCompatActivity {
         rootDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         //Watering Switch
-        wateringSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            rootDatabaseRef.child("Automation").child("Watering").setValue(isChecked)
-                    .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Watering updated to " + isChecked))
-                    .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Watering", e));
-        });
+        wateringSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
+                rootDatabaseRef.child("Automation").child("Watering").setValue(isChecked)
+                .addOnSuccessListener(aVoid -> Log.d("DataActivity", "Watering updated to " + isChecked))
+                .addOnFailureListener(e -> Log.w("DataActivity", "Failed to update Watering", e))
+        );
 
 
         //Wifi Credentials Setup
