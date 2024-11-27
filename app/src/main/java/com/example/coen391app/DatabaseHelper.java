@@ -34,11 +34,41 @@ public class DatabaseHelper {
         return instance;
     }
 
+    //add plant method
     public void addPlant(Plant plant, OnSuccessListener<Void> successListener, OnFailureListener failureListener){
         reference.push().setValue(plant)
                 .addOnSuccessListener(successListener)
                 .addOnFailureListener(failureListener);
     }
+
+    //Retrieve all plants
+    public void getAllPlants(ValueEventListener listener){
+        reference.addValueEventListener(listener);
+    }
+
+    public void getPlantByNickName(String nickname, final ValueEventListener listener) {
+        reference.orderByChild("nickname").equalTo(nickname).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for (DataSnapshot plantSnapshot : snapshot.getChildren()){
+                        Plant plant = plantSnapshot.getValue(Plant.class);
+                        listener.onDataChange(snapshot);
+                    }
+                }
+                else{
+                    listener.onCancelled(DatabaseError.fromException(new Exception("Plant not found"))) ;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                listener.onCancelled(error);
+            }
+        });
+    }
+
+
 
     public DatabaseReference getReference() {
         return reference;

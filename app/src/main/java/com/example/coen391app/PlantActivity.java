@@ -1,9 +1,11 @@
 package com.example.coen391app;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,7 +54,12 @@ public class PlantActivity extends AppCompatActivity {
 
         //fetch plants from database method call
         fetchPlantsFromDatabase();
+
+        //edit plant access logic
+
     }
+
+
 
     private void fetchPlantsFromDatabase() {
         databaseHelper.getReference().addListenerForSingleValueEvent(new ValueEventListener() {

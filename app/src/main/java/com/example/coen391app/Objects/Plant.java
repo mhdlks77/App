@@ -5,12 +5,12 @@ import java.io.Serializable;
 public class Plant extends PlantTemplate implements Serializable {
 
     private String nickname;
-    private String description;
     private PlantTemplate template;
     private int age;
     private double soilMoistureLevel;
     private double temperature;
     private double uvLighting;
+    private boolean default_plant;
 
     public Plant(String nickname, PlantTemplate template) {
         super();
@@ -26,6 +26,7 @@ public class Plant extends PlantTemplate implements Serializable {
         this.recommendedTemp = this.template.getRecommendedTemp();
         this.recommendedSoilMoisture = this.template.getRecommendedSoilMoisture();
         this.recommendedUvLight = this.template.getRecommendedUvLight();
+        this.default_plant = false;
     }
 
     public Plant(){
@@ -78,5 +79,13 @@ public class Plant extends PlantTemplate implements Serializable {
 
     public void setTemplate(PlantTemplate template) {
         this.template = template;
+    }
+
+    public boolean isDefault_plant() {
+        return default_plant;
+    }
+
+    public void setDefault_plant(boolean default_plant) {
+        this.default_plant = default_plant;
     }
 }
