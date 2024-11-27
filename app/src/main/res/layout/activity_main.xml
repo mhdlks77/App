@@ -6,23 +6,28 @@
 
     <!-- Toolbar -->
     <!-- In res/layout/activity_main.xml -->
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:title="My App Bar"/>
-
         </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:title="My App Bar" />
 
         <!-- Main content here, e.g., a RecyclerView or a LinearLayout -->
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -73,7 +78,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="8dp"
-            android:background="#B1B1B1"
+            android:background="#7BAEC3"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
@@ -97,12 +102,12 @@
             android:id="@+id/block3"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="#DDDDDD"
             android:layout_margin="8dp"
+            android:background="#E0A7A7"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -122,12 +127,12 @@
             android:id="@+id/block4"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="#DDDDDD"
             android:layout_margin="8dp"
+            android:background="#BABAC5"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"

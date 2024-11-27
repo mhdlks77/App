@@ -68,14 +68,44 @@ public class DatabaseHelper {
         });
     }
 
+    // method to retrieve sensor data
+    public void getSensorData(final SensorDataValueListener listener){
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Double temperature = snapshot.child("temperature").getValue(Double.class);
+                    Double moisturePercent = snapshot.child("moisturePercent").getValue(Double.class);
+                    Double light = snapshot.child("light").getValue(Double.class);
+
+                    if(temperature != null && moisturePercent != null && light != null) {
+                        listener.onValuesRetrieved(temperature, moisturePercent, light);
+                    }
+                    else {
+                        listener.onCancelled(DatabaseError.fromException(new Exception("Missing some values")));
+                    }
+                }else{
+                    listener.onCancelled(DatabaseError.fromException(new Exception("Sensor data not found")));
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                listener.onCancelled(error);
+            }
+        });
+    }
+
 
 
     public DatabaseReference getReference() {
         return reference;
     }
 
+    public interface SensorDataValueListener{
+        void onValuesRetrieved(double temperature, double moisturePercent, double light);
+        void onCancelled(DatabaseError error);
+    }
+
     //ADD METHOD TO CHECK IF AN ELEMENT EXISTS IN THE DB BY ITS NAME
-
-
 
 }

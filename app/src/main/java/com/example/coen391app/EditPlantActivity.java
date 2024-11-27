@@ -16,5 +16,4 @@ public class EditPlantActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Edit Plant");
     }
-
 }

@@ -1,7 +1,11 @@
 package com.example.coen391app;
 
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,26 +26,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "DBConnectioTest";
     private DatabaseReference mdb;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mdb = FirebaseDatabase.getInstance().getReference();
-        String st = "hello";
-        mdb.child("msg").push().setValue(st);
-
-
-
-
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Home");
-
-        //Initializing list of plant templates
-
-
 
 
         // Set up click listeners for each block

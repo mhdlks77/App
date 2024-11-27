@@ -47,6 +47,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
             intent.putExtra("plantRecommendedTemperature", plant.getTemplate().getRecommendedTemp());
             intent.putExtra("plantRecommendedSoilMoistureLevel", plant.getRecommendedSoilMoisture());
             intent.putExtra("plantRecommendedUvLight", plant.getRecommendedUvLight());
+            intent.putExtra("defaultPlant", plant.isDefault_plant());
             v.getContext().startActivity(intent);
         });
     }
