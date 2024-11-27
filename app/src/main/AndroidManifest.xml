@@ -20,6 +20,12 @@
         android:networkSecurityConfig="@xml/network_security_config">
 
         <activity
+            android:name=".EditPlantActivity"
+            android:parentActivityName=".PlantActivity"
+            android:exported="false"
+        />
+
+        <activity
             android:name=".AddPlantActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false" />

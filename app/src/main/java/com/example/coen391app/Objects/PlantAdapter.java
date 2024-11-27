@@ -36,11 +36,17 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), PlantDetailsActivity.class);
-            intent.putExtra("plantName", plant.getNickname());
+            intent.putExtra("plantNickname", plant.getNickname());
+            intent.putExtra("plantScientificName", plant.getScientificName());
+            intent.putExtra("plantCommonName", plant.getCommonName());
+            intent.putExtra("plantDescription", plant.getDescription());
             intent.putExtra("plantAge", plant.getAge());
             intent.putExtra("plantTemperature", plant.getTemperature());
-            intent.putExtra("plantUVLight", plant.getUvLighting());
-            intent.putExtra("plantSoil", plant.getSoilMoistureLevel());
+            intent.putExtra("plantSoilMoistureLevel", plant.getSoilMoistureLevel());
+            intent.putExtra("plantUvLight", plant.getUvLighting());
+            intent.putExtra("plantRecommendedTemperature", plant.getTemplate().getRecommendedTemp());
+            intent.putExtra("plantRecommendedSoilMoistureLevel", plant.getRecommendedSoilMoisture());
+            intent.putExtra("plantRecommendedUvLight", plant.getRecommendedUvLight());
             v.getContext().startActivity(intent);
         });
     }
