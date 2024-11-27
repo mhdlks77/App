@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
         mdb = FirebaseDatabase.getInstance().getReference();
         String st = "hello";
         mdb.child("msg").push().setValue(st);

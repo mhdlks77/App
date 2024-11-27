@@ -32,7 +32,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Text Input for Plant Nickname -->
+
         <TextView
             android:id="@+id/label_nickname"
             android:layout_width="wrap_content"
